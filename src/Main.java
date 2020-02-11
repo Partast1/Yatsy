@@ -3,6 +3,7 @@ public class Main {
     {
         Player player = new Player();
         player.RollDice();
+        player.DisplayrolledEyes();
         player.AddToReserve();
     }
 }
