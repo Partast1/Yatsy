@@ -48,6 +48,7 @@ public class Player {
     }
 
     int diceCount = 1;
+
 //    Show rolled dices
     public void DisplayrolledEyes()
     {
@@ -68,7 +69,7 @@ public class Player {
         boolean addingToReserve = true;
 
 
-//      int unReserve = 9;
+      int unReserve = 9;
         System.out.print("Choose dices to reserve");
        while (addingToReserve)
        {
@@ -76,28 +77,29 @@ public class Player {
            int diceSelector = scan.nextInt();
            diceSelector = diceSelector -1;
 
-               if (diceSelector <= rolledEyes.size())
+               if (diceSelector <= dices.size())
                {
-                   reserveDice.add(dices.get(diceSelector));
-                   dices.remove(diceSelector);
-                   reserveEye.add(rolledEyes.get(diceCount));
-                   rolledEyes.remove(diceSelector);
+                  Dice dice = dices.get(diceSelector);
+                  reserveDice.add(dice);
+                  int resEye = rolledEyes.get(diceSelector);
+                  dices.remove(diceSelector);
+                  reserveEye.add(resEye);
+                  rolledEyes.remove(diceSelector);
+
                    DisplayrolledEyes();
-                    System.out.print("dices" + dices.size());
-                   System.out.print("rolledeyes" + rolledEyes.size());
-                   System.out.print("reserved" + reserveDice.size());
+
                    System.out.print("Current reserve " );
-                   for (Integer num: reserveEye) {
-                       System.out.print(num);
-
+                   for (Integer num: reserveEye)
+                   {
+                       System.out.print(num + " ");
                    }
-
                }
-//              else if(diceSelector = 9)
+//               else if(diceSelector == unReserve)
 ////               {
-////                   for (Dice dice: reserveDice) {
-////                       rolledEyes.add(reserveDice.get(dice.));
-////                   }
+////                   System.out.print("Hej");
+////                   dices.addAll(reserveDice);
+//////                   reserveDice.clear();
+//////                   reserveEye.clear();
 ////               }
            else
                {
@@ -105,9 +107,7 @@ public class Player {
                    addingToReserve = false;
                }
        }
-        for (Dice dice: reserveDice) {
-            System.out.print("Eyes of added dice" + dice.eyes);
-        }
+
 
 
     }
