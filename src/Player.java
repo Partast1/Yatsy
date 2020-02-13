@@ -3,17 +3,19 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Player {
+public class Player
+{
 //    Class instantiating
     DiceFactory diceFac = new DiceFactory();
     Combination combination = new Combination();
-    Point points = new Point(0);
+//    PlayerMessage playerMes = new PlayerMessage();
+
 
 //    Variables
     private int rerollCount = 0;
     List<Dice> dices = new ArrayList<>();
-    List<Integer> rolledEyes = new ArrayList<>();
     List<Dice> reserveDice = new ArrayList<>();
+    List<Integer> rolledEyes = new ArrayList<>();
     List<Integer> reserveEye = new ArrayList<>();
 
 //    Getters & Setters
@@ -44,10 +46,10 @@ public class Player {
             num = num + 1;
             rolledEyes.add(num);
         }
+        DisplayrolledEyes();
     }
     int diceCount = 1;
-
-//    Show rolled dices
+//    Show rolled dices playerMessage
     public void DisplayrolledEyes()
     {
         for (Integer num : rolledEyes)
@@ -56,14 +58,16 @@ public class Player {
             diceCount++;
         }
         diceCount = 1;
+
     }
 
     //    Adds wanted dices to the reserve
     public void AddToReserve()
     {
         boolean reserveBool = true;
-      int unReserve = 9;
-        System.out.print("Choose dices to reserve");
+      int unReserve = 7;
+      int stopReserve = 8;
+        System.out.print("Choose dices to reserve /  8 for reroll / 9 to stop");
         while (reserveBool)
         {
             if (rerollCount < 3)
@@ -81,20 +85,30 @@ public class Player {
                     rolledEyes.remove(diceSelector);
 
                     DisplayrolledEyes();
-                    rerollCount++;
+//                    playerMessage
                     System.out.print("Current reserve ");
                     for (Integer num : reserveEye) {
                         System.out.print(num + " ");
                     }
                 }
-//               else if(diceSelector == unReserve)
-////               {
-////                   System.out.print("Hej");
-////                   dices.addAll(reserveDice);
-//////                   reserveDice.clear();
-//////                   reserveEye.clear();
-////               }
+               else if(diceSelector == unReserve)
+               {
+                   rolledEyes.clear();
+                   RollDice();
+                   rerollCount++;
+               }
+                else if(diceSelector == stopReserve)
+                {
+                    for (Integer num: rolledEyes)
+                    {
+                     reserveEye.add(num);
+                    }
+                    combination.CheckCombo(reserveEye);
+                    reserveBool = false;
+
+                }
                 else {
+//                    playerMessage
                     System.out.print("Wrong input");
                     reserveBool = false;
                 }
@@ -105,10 +119,6 @@ public class Player {
                             reserveBool = false;
                         }
         }
-
-
-
-
-
+        combination.CheckCombo(reserveEye);
     }
 }

@@ -1,13 +1,137 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
 
 public class Combination  {
-    List<Integer> availableCombo = new ArrayList<>();
+    List<String> combos = new ArrayList<>();
+    Point points = new Point(0);
 
-private void CheckCombo(){
+    public Combination()
+    {
+        combos.add("ones");
+        combos.add("twos");
+        combos.add("threes");
+        combos.add("fours");
+        combos.add("fives");
+        combos.add("sixes");
+        combos.add("one par");
+        combos.add("two pars");
+        combos.add("3 like");
+        combos.add("4 likes");
+        combos.add("little straight");
+        combos.add("big straight");
+        combos.add("house");
+        combos.add("chance");
+        combos.add("YATZY");
+
+    }
+
+public void CheckCombo(List<Integer> rolledEyes)
+{
+    Scanner scan = new Scanner(System.in);
+
+    System.out.print("Available combo eyes ");
+
+    for (Integer num: rolledEyes)
+    {
+     System.out.print(num);
+    }
+    int comboChoise = scan.nextInt();
+    int pointsToAdd = 0;
+        switch (comboChoise)
+        {
+            //region 1-6
+            case 1:
+                for (Integer num: rolledEyes)
+                {
+                    if (num == 1)
+                    {
+                        pointsToAdd = pointsToAdd + 1;
+                    }
+                }
+                points.setPoints(pointsToAdd);
+                System.out.print(points.getPoints());
+                break;
+
+            case 2:
+                for (Integer num: rolledEyes)
+                {
+                    if (num == 2)
+                    {
+                        pointsToAdd = pointsToAdd + 2;
+                    }
+                }
+                points.setPoints(pointsToAdd);
+                System.out.print(points.getPoints());
+                break;
+
+            case 3:
+                for (Integer num: rolledEyes)
+                {
+                    if (num == 3)
+                    {
+                        pointsToAdd = pointsToAdd + 3;
+                    }
+                }
+                points.setPoints(pointsToAdd);
+                System.out.print(points.getPoints());
+                break;
+
+            case 4:
+                for (Integer num: rolledEyes)
+                {
+                    if (num == 4)
+                    {
+                        pointsToAdd = pointsToAdd + 4;
+                    }
+                }
+                points.setPoints(pointsToAdd);
+                System.out.print(points.getPoints());
+                break;
+            case 5:
+                for (Integer num: rolledEyes)
+                {
+                    if (num == 5)
+                    {
+                        pointsToAdd = pointsToAdd + 5;
+                    }
+                }
+                points.setPoints(pointsToAdd);
+                System.out.print(points.getPoints());
+                break;
+            case 6:
+                for (Integer num: rolledEyes)
+                {
+                    if (num == 6)
+                    {
+                        pointsToAdd = pointsToAdd + 6;
+                    }
+                }
+                points.setPoints(pointsToAdd);
+                System.out.print(points.getPoints());
+                break;
+            //endregion
+            case 7:
+                for (Integer num: rolledEyes)
+                {
+                    for (int i = 0; i < rolledEyes.size(); i++) {
+
+                    }
+                    if (num == 6)
+                    {
+
+                    }
+                }
+                points.setPoints(pointsToAdd);
+                System.out.print(points.getPoints());
+                break;
+
+        }
 
 }
-private void SortAvailable(List<Integer> available){
+private void SortAvailable(List<Integer> available)
+{
 
 }
 private void ChooseCombo(){
