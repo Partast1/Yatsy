@@ -113,50 +113,82 @@ public void CheckCombo(List<Integer> rolledEyes)
                 break;
             //endregion
             case 7:
-
                     for (int i = 0; i < rolledEyes.size(); i++)
                     {
-                        for (int j = 0; j < rolledEyes.size(); j++)
+                        for (int j = i + 1; j  < rolledEyes.size(); j++)
                         {
                             if (rolledEyes.get(i) == rolledEyes.get(j)) {
                                pointsToAdd = rolledEyes.get(i) + rolledEyes.get(j);
                             }
                         }
                     }
-
-
-
                 points.setPoints(pointsToAdd);
                 System.out.print(pointsToAdd);
                 break;
             case 8:
+                int firstPair = 0;
+                    for (int i = 0; i < rolledEyes.size(); i++)
+                    {
+                        for (int j = i + 1; j < rolledEyes.size(); j++)
+                        {
+                            if (rolledEyes.get(i) == rolledEyes.get(j))
+                            {
+                                 firstPair = rolledEyes.get(i) + rolledEyes.get(j);
+                                rolledEyes.remove(i);
+                                 break;
 
-                    for (int i = 0; i < rolledEyes.size(); i++) {
-                        for (int j = 0; j < rolledEyes.size(); j++) {
-                            for (int k = 0; k < rolledEyes.size(); k++) {
-                                for (int l = 0; l < rolledEyes.size(); l++) {
-                                    if (rolledEyes.get(i).equals(rolledEyes.get(j)) && rolledEyes.get(k).equals(rolledEyes.get(l))) {
-                                        pointsToAdd = rolledEyes.get(i) * 2 + rolledEyes.get(k) * 2;
-                                    }
-                                }
                             }
                         }
                     }
+                for (int k = 0; k < rolledEyes.size(); k++)
+                {
+                    for (int l = k + 1; l < rolledEyes.size(); l++)
+                    {
+                        if (rolledEyes.get(k) == rolledEyes.get(l))
+                        {
+                            pointsToAdd = firstPair + rolledEyes.get(k) + rolledEyes.get(l);
+                        }
+                    }
+                }
 
+                points.setPoints(pointsToAdd);
+                System.out.print(pointsToAdd);
+                break;
+            case 9:
+
+                for (int i = 0; i < rolledEyes.size(); i++)
+                {
+                    for (int j = i + 1; j < rolledEyes.size(); j++)
+                    {
+                        for (int k = j + 1; k < rolledEyes.size(); k++)
+                        {
+                            if (rolledEyes.get(i).equals(rolledEyes.get(j)) && rolledEyes.get(j).equals(rolledEyes.get(k))) {
+                                pointsToAdd = rolledEyes.get(i) + rolledEyes.get(j) + rolledEyes.get(k);
+                            }
+                        }
+                    }
+                }
 
 
 
                 points.setPoints(pointsToAdd);
                 System.out.print(points.getPoints());
                 break;
-            case 9:
+            case 10:
 
-                for (int i = 0; i < rolledEyes.size(); i++) {
-                    for (int j = 0; j < rolledEyes.size(); j++) {
-                        for (int k = 0; k < rolledEyes.size(); k++) {
-                            if (rolledEyes.get(i).equals(rolledEyes.get(j)) && rolledEyes.get(j).equals(rolledEyes.get(k))) {
-                                pointsToAdd = rolledEyes.get(i) + rolledEyes.get(j) + rolledEyes.get(k);
+                for (int i = 0; i < rolledEyes.size(); i++)
+                {
+                    for (int j = i + 1; j < rolledEyes.size(); j++)
+                    {
+                        for (int k = j + 1; k < rolledEyes.size(); k++)
+                        {
+                            for (int l = k + 1; l < rolledEyes.size(); l++) {
+
+                                if (rolledEyes.get(i).equals(rolledEyes.get(j)) && rolledEyes.get(j).equals(rolledEyes.get(k))) {
+                                    pointsToAdd = rolledEyes.get(i) + rolledEyes.get(j) + rolledEyes.get(k);
+                                }
                             }
+
                         }
                     }
                 }

@@ -70,7 +70,7 @@ public class Player
         System.out.print("Choose dices to reserve /  8 for reroll / 9 to stop");
         while (reserveBool)
         {
-            if (rerollCount < 3)
+            if (rerollCount < 7)
             {
                 Scanner scan = new Scanner(System.in);
                 int diceSelector = scan.nextInt();
