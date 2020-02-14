@@ -113,16 +113,56 @@ public void CheckCombo(List<Integer> rolledEyes)
                 break;
             //endregion
             case 7:
-                for (Integer num: rolledEyes)
-                {
-                    for (int i = 0; i < rolledEyes.size(); i++) {
 
-                    }
-                    if (num == 6)
+                    for (int i = 0; i < rolledEyes.size(); i++)
                     {
+                        for (int j = 0; j < rolledEyes.size(); j++)
+                        {
+                            if (rolledEyes.get(i) == rolledEyes.get(j)) {
+                               pointsToAdd = rolledEyes.get(i) + rolledEyes.get(j);
+                            }
+                        }
+                    }
 
+
+
+                points.setPoints(pointsToAdd);
+                System.out.print(pointsToAdd);
+                break;
+            case 8:
+
+                    for (int i = 0; i < rolledEyes.size(); i++) {
+                        for (int j = 0; j < rolledEyes.size(); j++) {
+                            for (int k = 0; k < rolledEyes.size(); k++) {
+                                for (int l = 0; l < rolledEyes.size(); l++) {
+                                    if (rolledEyes.get(i).equals(rolledEyes.get(j)) && rolledEyes.get(k).equals(rolledEyes.get(l))) {
+                                        pointsToAdd = rolledEyes.get(i) * 2 + rolledEyes.get(k) * 2;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+
+
+
+                points.setPoints(pointsToAdd);
+                System.out.print(points.getPoints());
+                break;
+            case 9:
+
+                for (int i = 0; i < rolledEyes.size(); i++) {
+                    for (int j = 0; j < rolledEyes.size(); j++) {
+                        for (int k = 0; k < rolledEyes.size(); k++) {
+                            if (rolledEyes.get(i).equals(rolledEyes.get(j)) && rolledEyes.get(j).equals(rolledEyes.get(k))) {
+                                pointsToAdd = rolledEyes.get(i) + rolledEyes.get(j) + rolledEyes.get(k);
+                            }
+                        }
                     }
                 }
+
+
+
                 points.setPoints(pointsToAdd);
                 System.out.print(points.getPoints());
                 break;
