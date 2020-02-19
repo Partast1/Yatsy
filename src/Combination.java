@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Combination  {
-    List<String> combos = new ArrayList<>();
+   private List<String> combos = new ArrayList<>();
     Point points = new Point(0);
 
     public Combination()
@@ -27,6 +27,7 @@ public class Combination  {
 
     }
 
+
 public void CheckCombo(List<Integer> rolledEyes)
 {
     Scanner scan = new Scanner(System.in);
@@ -36,6 +37,12 @@ public void CheckCombo(List<Integer> rolledEyes)
     for (Integer num: rolledEyes)
     {
      System.out.print(num);
+    }
+    int comobNum = 1;
+    for (String text: combos)
+    {
+        System.out.println(comobNum + ". " + text + " ");
+        comobNum++;
     }
     int comboChoise = scan.nextInt();
     int pointsToAdd = 0;
@@ -112,6 +119,9 @@ public void CheckCombo(List<Integer> rolledEyes)
                 System.out.print(points.getPoints());
                 break;
             //endregion
+
+            //region Pairs and kinds
+            //            Pair
             case 7:
                     for (int i = 0; i < rolledEyes.size(); i++)
                     {
@@ -125,6 +135,7 @@ public void CheckCombo(List<Integer> rolledEyes)
                 points.setPoints(pointsToAdd);
                 System.out.print(pointsToAdd);
                 break;
+//                2 paris
             case 8:
                 int firstPair = 0;
                     for (int i = 0; i < rolledEyes.size(); i++)
@@ -154,6 +165,7 @@ public void CheckCombo(List<Integer> rolledEyes)
                 points.setPoints(pointsToAdd);
                 System.out.print(pointsToAdd);
                 break;
+//                3 of a kind
             case 9:
 
                 for (int i = 0; i < rolledEyes.size(); i++)
@@ -174,6 +186,7 @@ public void CheckCombo(List<Integer> rolledEyes)
                 points.setPoints(pointsToAdd);
                 System.out.print(points.getPoints());
                 break;
+//                4 of a kind
             case 10:
 
                 for (int i = 0; i < rolledEyes.size(); i++)
@@ -195,12 +208,30 @@ public void CheckCombo(List<Integer> rolledEyes)
                 points.setPoints(pointsToAdd);
                 System.out.print(points.getPoints());
                 break;
+            //endregion
+
+            //region Straight to Yatzy
+            //                small straight
             case 11:
-
+                for (int i = 0; i < rolledEyes.size(); i++) {
+                    if (rolledEyes.contains(1) && rolledEyes.contains(2) && rolledEyes.contains(3) && rolledEyes.contains(4) && rolledEyes.contains(5)){
+                        pointsToAdd = pointsToAdd + rolledEyes.get(i);
+                    }
+                }
+                points.setPoints(pointsToAdd);
+                System.out.print(points.getPoints());
                 break;
+//                big straight
             case 12:
-
+                for (int i = 0; i < rolledEyes.size(); i++) {
+                    if (rolledEyes.contains(2) && rolledEyes.contains(3) && rolledEyes.contains(4) && rolledEyes.contains(5) && rolledEyes.contains(6)){
+                        pointsToAdd = pointsToAdd + rolledEyes.get(i);
+                    }
+                }
+                points.setPoints(pointsToAdd);
+                System.out.print(points.getPoints());
                 break;
+//                full house
             case 13:
                 int firstPair2 = 0;
                 for (int i = 0; i < rolledEyes.size(); i++)
@@ -232,6 +263,7 @@ public void CheckCombo(List<Integer> rolledEyes)
                 points.setPoints(pointsToAdd);
                 System.out.print(points.getPoints());
                 break;
+//                chance
             case 14:
                 for (Integer num: rolledEyes)
                 {
@@ -240,9 +272,19 @@ public void CheckCombo(List<Integer> rolledEyes)
                 points.setPoints(pointsToAdd);
                 System.out.print(points.getPoints());
                 break;
+//                Yatzy
             case 15:
+                for (Integer num: rolledEyes) {
+                    if (num.equals(rolledEyes.get(0))){
+                        pointsToAdd += num;
+                    }
+
+                }
+                points.setPoints(pointsToAdd);
+                System.out.print(points.getPoints());
 
                 break;
+            //endregion
 
         }
 

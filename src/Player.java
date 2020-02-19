@@ -60,7 +60,6 @@ public class Player
         diceCount = 1;
 
     }
-
     //    Adds wanted dices to the reserve
     public void AddToReserve()
     {
@@ -70,7 +69,7 @@ public class Player
         System.out.print("Choose dices to reserve /  8 for reroll / 9 to stop");
         while (reserveBool)
         {
-            if (rerollCount < 12)
+            if (rerollCount < 32)
             {
                 Scanner scan = new Scanner(System.in);
                 int diceSelector = scan.nextInt();
@@ -115,7 +114,7 @@ public class Player
             }
                     else
                         {
-                            System.out.print("You have used all reserves attempts");
+                            System.out.print("You have used all reserve attempts");
                             reserveBool = false;
                         }
         }
