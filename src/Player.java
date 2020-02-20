@@ -60,8 +60,8 @@ public class Player
         diceCount = 1;
 
     }
-    //    Adds wanted dices to the reserve
-    public void AddToReserve()
+    //    Handles dice selection, reroll.
+    public void AddToReserve(int input)
     {
         boolean reserveBool = true;
       int unReserve = 7;
